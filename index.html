@@ -12,19 +12,18 @@
 				
 			</div>
 		</div>
-	</section>
-		
+	</section>	
 	<script type="text/javascript" src="jQuery.min.js"></script>
 	<script type="text/javascript" src="functions.js"></script>
+	<script type="text/javascript" src="data/data.js"></script>
 	<!-- <script type="text/javascript" src="scripts.js"></script> -->
 	<script type="text/javascript">
 	var user_language = GetUserLang();
 	
 	var jsonFile = "data/zh-TW.json";
 
-	// user_language = "en-AU";
+	user_language = "en-AU";
 
-	
 
 	if(user_language.substr(0,2) == "en"){
 		user_language = "en-US";
@@ -36,22 +35,28 @@
 
 	$("#content").addClass("lang_"+user_language);
 
-	switch(user_language){
-		case "zh-TW":
-			jsonFile = "data/zh-TW.json";
-			break;
-		case "zh-CN":
-			jsonFile = "data/zh-CN.json";
-			break;	
-		case "en-US":
-			jsonFile = "data/en-US.json";
-			break;	
-		default:
-			jsonFile = "data/zh-TW.json";
-			break;	
-	}
+	// 使用 data/data.js =========================================
+	CreateHtmlbyLanguage(user_language);
 
-	CreateHtmlbyJson(jsonFile);
+
+	// 使用JSON檔案 ===================================================
+
+	// switch(user_language){
+	// 	case "zh-TW":
+	// 		jsonFile = "data/zh-TW.json";
+	// 		break;
+	// 	case "zh-CN":
+	// 		jsonFile = "data/zh-CN.json";
+	// 		break;	
+	// 	case "en-US":
+	// 		jsonFile = "data/en-US.json";
+	// 		break;
+	// 	default:
+	// 		jsonFile = "data/zh-TW.json";
+	// 		break;	
+	// }
+
+	// CreateHtmlbyJson(jsonFile);
 	</script>
 
 </body>

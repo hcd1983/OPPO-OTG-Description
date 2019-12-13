@@ -9,6 +9,7 @@ function GetUserLang(){
 }
 
 function fetchJSONFile(path, callback) {
+
     var httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4) {
@@ -20,6 +21,13 @@ function fetchJSONFile(path, callback) {
     };
     httpRequest.open('GET', path);
     httpRequest.send(); 
+}
+
+function CreateHtmlbyLanguage(language){
+	var _language = language.replace("-", '_');
+	var _data = data[_language];
+	var html = HtmlGenerator(_data);
+	$("#content").html(html);
 }
 
 function CreateHtmlbyJson(file){
