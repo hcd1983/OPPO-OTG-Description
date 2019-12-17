@@ -58,7 +58,9 @@ function HtmlGenerator(json){
 			"steps" : [],
 		};	
 
-	var _setting = Object.assign( _default, json);
+	// var _setting = Object.assign( _default, json);
+	var _setting =  $.merge( json,_default);
+	console.log(_setting);
 	var html = '<h1>' + _setting.title + '</h1>';
 	for (var i = 0; i < _setting.steps.length; i++) {
 		var _step = _setting.steps[i];
