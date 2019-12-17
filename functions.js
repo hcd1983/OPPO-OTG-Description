@@ -27,7 +27,7 @@ function CreateHtmlbyLanguage(language){
 	var _language = language.replace("-", '_');
 	var _data = data[_language];
 
-	if(typeof _data == "undefined"){
+	if( _data == undefined){
 		_data = data.default;
 	}
 
@@ -52,10 +52,11 @@ function CreateHtmlbyJson(file){
 }
 
 function HtmlGenerator(json){
+	
 	var _default = {
 			"title" : "",
 			"steps" : [],
-		};
+		};	
 
 	var _setting = Object.assign( _default, json);
 	var html = '<h1>' + _setting.title + '</h1>';
@@ -64,7 +65,7 @@ function HtmlGenerator(json){
 		
 		html += '<h3>' + _step.content + '</h3>';
 		
-		if(typeof _step.image !== "undefined"){
+		if(_step.image !== undefined){
 			html += '<div id="imagebox_' + i + '" class="imagebox"><img src="'+ _step.image +'"></div>';
 		}
 	}
