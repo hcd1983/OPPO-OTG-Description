@@ -59,5 +59,6 @@ var en_US = {
 var data = {
 	"zh_CN" : zh_CN,
 	"zh_TW" : zh_TW,
-	"en_US" : en_US
+	"en_US" : en_US,
+	"default" : zh_TW,
 }

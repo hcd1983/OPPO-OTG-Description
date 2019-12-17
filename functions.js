@@ -26,6 +26,11 @@ function fetchJSONFile(path, callback) {
 function CreateHtmlbyLanguage(language){
 	var _language = language.replace("-", '_');
 	var _data = data[_language];
+
+	if(typeof _data == "undefined"){
+		_data = data.default;
+	}
+
 	var html = HtmlGenerator(_data);
 	$("#content").html(html);
 }
@@ -53,14 +58,14 @@ function HtmlGenerator(json){
 		};
 
 	var _setting = Object.assign( _default, json);
-	var html = `<h1>${_setting.title}</h1>`;
+	var html = '<h1>' + _setting.title + '</h1>';
 	for (var i = 0; i < _setting.steps.length; i++) {
 		var _step = _setting.steps[i];
 		
-		html += `<h3>${_step.content}</h3>`;
+		html += '<h3>' + _step.content + '</h3>';
 		
 		if(typeof _step.image !== "undefined"){
-			html += `<div id="imagebox_${i}" class="imagebox"><img src="${_step.image}"></div>`;
+			html += '<div id="imagebox_' + i + '" class="imagebox"><img src="'+ _step.image +'"></div>';
 		}
 	}
 
